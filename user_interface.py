@@ -1,4 +1,5 @@
 import os
+import cans
 # This file is meant to be imported as a module, not a class. 
 # This is similar to how the random module is imported.
 # Do not create a User Interface class in this file. 
@@ -50,7 +51,7 @@ def display_welcome():
 
 def output_text(text):
     """User input method that will print to console any string passed in as an argument"""
-    print("text")
+    print(text)
 
 
 def clear_console():
@@ -76,7 +77,7 @@ def soda_selection(inventory):
         print("Please choose from the following options:")
         i = 1
         for can in soda_options:
-            print("\n\tEnter -{i}- for {can} : ${can.price}")
+            print(f"\n\tEnter -{i}- for {can.name} : ${can.price}")
             i += 1
         user_selection = try_parse_int(input("Selection:"))
         validated_user_selection = validate_coin_choice(user_selection, soda_options)
