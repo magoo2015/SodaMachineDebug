@@ -1,10 +1,11 @@
 import cans
 import coins
 import user_interface
+import customer
 
 class SodaMachine:
     def __init__(self):
-        self.register = []
+        self.register = [coins.Dime(), coins.Nickel(), coins.Penny(), coins.Quarter()]
         self.inventory = [cans.Cola(), cans.OrangeSoda(), cans.RootBeer()]
 
     def fill_register(self):
@@ -39,7 +40,7 @@ class SodaMachine:
 
         selected_soda = self.get_inventory_soda(selected_soda_name)
 
-        customer_payment = customer.gather_coins_from_wallet(selected_soda_name)
+        customer_payment = customer.gather_coins_from_wallet(selected_soda)
 
         self.calculate_transaction(customer_payment, selected_soda, customer)
 
